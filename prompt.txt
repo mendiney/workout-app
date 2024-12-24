@@ -1,0 +1,163 @@
+
+**Prompt for AI: Build a Mobile-Friendly Gym Training Tracker Website**
+
+I want to create a **mobile-friendly web application** for tracking specific exercises and weights over time. The primary goal is to track workouts, view previous performance, and easily input new data for each exercise during training sessions. Additionally, I want the ability to add historic training sessions that were not previously logged. Here’s the detailed breakdown of features, requirements, and tech stack:
+
+---
+
+### **Core Features**
+
+#### **1. Exercise Tracking**
+   - Allow users to:
+     - Add new types of exercises (e.g., Bench Press, Squat, Deadlift).
+     - Specify exercise details such as name, muscle group, and default settings (optional).
+
+#### **2. Workout Program Management**
+   - Users can create multiple **workout types** (e.g., Upper Body, Lower Body, Full Body).
+     - Each workout contains a list of selected exercises.
+     - Workouts can be named and saved for reuse.
+
+#### **3. Starting a Training Session**
+   - When starting a workout:
+     - Show a **list of exercises** in the selected workout.
+     - For each exercise, display:
+       - Previous workout data (weights and reps for each set).
+       - Empty fields to input new weights and reps for each set.
+   - Automatically carry over the previous session's weights and reps as defaults for easy reference.
+
+#### **4. Adding Historical Data**
+   - Provide a feature to add past training sessions that were not logged in the application:
+     - Allow users to input the date, workout type, and details of exercises performed (sets, weights, and reps).
+     - Include an option to mark the session as historic, distinct from current sessions.
+   - Ensure historical data integrates seamlessly into progress tracking and charts.
+
+#### **5. Data Input**
+   - Make it intuitive and efficient to:
+     - Add the weight and reps for each set during a workout.
+     - Add, edit, or delete sets on the fly.
+
+#### **6. History and Progress Tracking**
+   - Store and display workout history:
+     - Show trends for each exercise (e.g., weight lifted over time).
+     - Allow filtering by exercise, workout type, or specific date ranges.
+   - Include visualizations like **line charts** for weight progress over time.
+
+---
+
+### **Key Design Goals**
+
+1. **Mobile-Optimized Interface:**
+   - Design for one-hand usability with clear, touch-friendly controls.
+   - Responsive layout to work seamlessly on all devices.
+   - Use dropdowns or lists for easy workout and exercise selection.
+
+2. **Training Session View:**
+   - Display all exercises for the session in a clean, scrollable view.
+   - Each exercise should:
+     - Have a section for last session data.
+     - Show input fields for current session's data (e.g., set weights and reps).
+
+3. **Quick Interaction:**
+   - Default to showing last session’s weights to minimize typing.
+   - Include "+" and "-" buttons for adjusting weights quickly.
+   - Auto-save inputs after each set.
+
+4. **Minimal Distractions:**
+   - Focus on the workout screen during training.
+   - Limit navigation to essential buttons (e.g., "End Session" or "Next Exercise").
+
+---
+
+### **Tech Stack**
+
+#### **Frontend**
+- **React**:
+  - Build the interface with React for responsiveness and interactivity.
+  - Use libraries like React Router for navigation and Chart.js or Recharts for visualizing progress.
+
+#### **Backend**
+- **Python**:
+  - Use a Python backend (e.g., Flask or FastAPI) to handle:
+    - API endpoints for managing user data, workouts, and historical sessions.
+    - Authentication and secure data handling.
+
+#### **Database**
+- **Firebase**:
+  - Use Firebase Realtime Database or Firestore to store and manage data.
+  - Sync user data (e.g., exercises, workouts, sessions) in real-time for seamless updates across devices.
+  - Use Firebase Authentication for user login.
+
+#### **Deployment**
+- Frontend: Deploy using Netlify or Vercel for fast, scalable delivery.
+- Backend: Deploy on a platform like Google Cloud Run or AWS Lambda for serverless, scalable backend handling.
+
+---
+
+### **Database Structure**
+
+1. **Users**:
+   - User ID
+   - Profile details (e.g., name, age, fitness goals)
+
+2. **Exercises**:
+   - Exercise ID
+   - Name
+   - Muscle group
+   - Default settings (optional)
+
+3. **Workouts**:
+   - Workout ID
+   - User ID
+   - Workout name
+   - List of exercises in the workout
+
+4. **Training Sessions**:
+   - Session ID
+   - User ID
+   - Workout ID
+   - Date (allow manual input for historic sessions)
+   - List of exercises with:
+     - Exercise ID
+     - Sets (weights and reps)
+
+---
+
+### **Example Flow**
+
+#### **1. Home Screen**
+   - Display:
+     - "Start Workout" button.
+     - Quick access to workout history.
+
+#### **2. Create/Edit Workouts**
+   - Add/edit workouts with selected exercises.
+
+#### **3. Add Historical Session**
+   - Provide a separate button or section to log past training sessions.
+   - Input form for:
+     - Date of session.
+     - Exercises performed, with weights and reps for each set.
+
+#### **4. Start Workout Session**
+   - Select a workout type.
+   - View the list of exercises, with weights and reps from the last session pre-filled.
+   - Add/update weights and reps for each set in real time.
+
+#### **5. End Session**
+   - Save the session and provide a summary (e.g., total volume lifted).
+
+#### **6. History and Progress**
+   - View a log of all training sessions.
+   - Filter by exercise or workout type.
+   - Display progress charts for individual exercises.
+
+---
+
+### **Bonus Features**
+1. **Offline Mode:**
+   - Allow users to log data offline and sync when back online.
+2. **Reminders and Notifications:**
+   - Notify users to log missed sessions or revisit specific workouts.
+3. **Custom Progress Metrics:**
+   - Allow users to define metrics they want to track (e.g., total weight lifted in a week).
+

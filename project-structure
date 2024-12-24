@@ -1,0 +1,31 @@
+gym-tracker/
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── auth/
+│   │   │   ├── exercises/
+│   │   │   ├── workouts/
+│   │   │   ├── sessions/
+│   │   │   └── common/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   ├── contexts/
+│   │   ├── hooks/
+│   │   ├── styles/
+│   │   └── App.js
+│   ├── package.json
+│   └── README.md
+├── backend/
+│   ├── app/
+│   │   ├── routes/
+│   │   ├── models/
+│   │   ├── controllers/
+│   │   └── middleware/
+│   ├── config/
+│   ├── requirements.txt
+│   └── main.py
+└── README.md 
